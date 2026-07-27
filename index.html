@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fisio Vitalis — Fisioterapia Esportiva e Funcional</title>
+<meta name="description" content="Volte a se mover sem dor. Avaliação completa, tratamento personalizado e acompanhamento até a alta na Fisio Vitalis.">
+<style>
+  :root {
+    --cor-principal: #1B7F79;
+    --cor-principal-escura: #145F5A;
+    --cor-secundaria: #F2A65A;
+    --cor-secundaria-escura: #D98A3D;
+    --cor-fundo: #F7FAF9;
+    --cor-texto: #1F2A2A;
+    --cor-texto-suave: #4B5B5A;
+    --cor-card: #FFFFFF;
+    --cor-borda: #E1E9E7;
+    --sombra: 0 4px 20px rgba(15, 60, 55, 0.08);
+    --raio: 14px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: auto; }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    color: var(--cor-texto);
+    background: var(--cor-fundo);
+    line-height: 1.6;
+  }
+
+  img, svg { max-width: 100%; display: block; }
+
+  a { color: inherit; }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    background: var(--cor-principal);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 0 0 8px 0;
+    z-index: 100;
+  }
+  .skip-link:focus {
+    left: 0;
+    top: 0;
+  }
+
+  button, .btn, a.btn {
+    touch-action: manipulation;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--cor-secundaria-escura);
+    outline-offset: 2px;
+  }
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* HEADER */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(247, 250, 249, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--cor-borda);
+    z-index: 50;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--cor-principal-escura);
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: var(--cor-secundaria-escura); }
+  nav a.btn-nav {
+    display: inline-block;
+    background: var(--cor-principal);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  nav a.btn-nav:hover { background: var(--cor-principal-escura); }
+
+  /* HERO */
+  .hero {
+    padding: 72px 0 64px;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    margin: 0 0 20px;
+    color: var(--cor-principal-escura);
+    letter-spacing: -0.02em;
+  }
+  .hero h1 strong { color: var(--cor-secundaria-escura); }
+  .hero p.subtitulo {
+    font-size: 1.15rem;
+    color: var(--cor-texto-suave);
+    margin: 0 0 32px;
+    max-width: 46ch;
+  }
+  .btn-primario {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--cor-secundaria);
+    color: #2A1D0B;
+    font-weight: 700;
+    padding: 16px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 1.05rem;
+    box-shadow: var(--sombra);
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primario:hover { background: var(--cor-secundaria-escura); color: #fff; }
+
+  .hero-selo {
+    margin-top: 24px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--cor-texto-suave);
+  }
+  .hero-selo span { display: flex; align-items: center; gap: 6px; }
+
+  .hero-visual {
+    background: linear-gradient(160deg, var(--cor-principal) 0%, var(--cor-principal-escura) 100%);
+    border-radius: var(--raio);
+    aspect-ratio: 4/3.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 32px;
+    text-align: center;
+    box-shadow: var(--sombra);
+  }
+  .hero-visual-conteudo strong { display: block; font-size: 2.6rem; }
+  .hero-visual-conteudo small { opacity: 0.85; }
+
+  /* SEÇÕES GERAIS */
+  section { padding: 64px 0; }
+  .titulo-secao {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+  .titulo-secao .eyebrow {
+    color: var(--cor-secundaria-escura);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+  }
+  .titulo-secao h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--cor-principal-escura);
+    margin: 8px 0 12px;
+  }
+  .titulo-secao p { color: var(--cor-texto-suave); margin: 0; }
+
+  /* BENEFÍCIOS */
+  .beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+  .beneficio-card {
+    background: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    padding: 28px 24px;
+  }
+  .beneficio-icone {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: rgba(27, 127, 121, 0.1);
+    color: var(--cor-principal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+  .beneficio-card h3 { margin: 0 0 8px; font-size: 1.1rem; color: var(--cor-texto); }
+  .beneficio-card p { margin: 0; color: var(--cor-texto-suave); font-size: 0.95rem; }
+
+  /* OFERTA */
+  .oferta {
+    background: var(--cor-card);
+  }
+  .oferta-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: linear-gradient(135deg, rgba(27,127,121,0.06), rgba(242,166,90,0.08));
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    padding: 40px;
+  }
+  .oferta-lista { list-style: none; margin: 20px 0 28px; padding: 0; }
+  .oferta-lista li {
+    padding: 10px 0 10px 30px;
+    position: relative;
+    color: var(--cor-texto-suave);
+  }
+  .oferta-lista li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: var(--cor-principal);
+    font-weight: 800;
+    background: rgba(27,127,121,0.12);
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+  }
+  .oferta-preco-card {
+    background: var(--cor-card);
+    border-radius: var(--raio);
+    padding: 32px;
+    text-align: center;
+    box-shadow: var(--sombra);
+    align-self: start;
+  }
+  .oferta-preco-card .preco { font-size: 2.4rem; font-weight: 800; color: var(--cor-principal-escura); }
+  .oferta-preco-card .preco small { font-size: 1rem; font-weight: 500; color: var(--cor-texto-suave); }
+  .oferta-preco-card .btn-primario { width: 100%; justify-content: center; margin-top: 20px; }
+
+  /* PROVA SOCIAL */
+  .depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .depoimento-card {
+    background: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    padding: 28px;
+  }
+  .depoimento-estrelas { color: var(--cor-secundaria-escura); letter-spacing: 2px; margin-bottom: 12px; }
+  .depoimento-texto { font-style: italic; color: var(--cor-texto); margin: 0 0 16px; }
+  .depoimento-autor { display: flex; align-items: center; gap: 12px; }
+  .depoimento-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--cor-principal);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+  }
+  .depoimento-autor strong { display: block; font-size: 0.95rem; }
+  .depoimento-autor span { font-size: 0.85rem; color: var(--cor-texto-suave); }
+
+  /* FAQ */
+  .faq-lista { max-width: 760px; margin: 0 auto; }
+  details {
+    background: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    padding: 4px 20px;
+    margin-bottom: 12px;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 700;
+    padding: 16px 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    color: var(--cor-principal);
+    font-weight: 400;
+  }
+  details[open] summary::after { content: "–"; }
+  details p { margin: 0 0 16px; color: var(--cor-texto-suave); }
+
+  /* CTA FINAL */
+  .cta-final {
+    background: linear-gradient(135deg, var(--cor-principal) 0%, var(--cor-principal-escura) 100%);
+    color: #fff;
+    text-align: center;
+    border-radius: var(--raio);
+    padding: 56px 32px;
+    margin: 0 24px;
+  }
+  .cta-final h2 { margin: 0 0 12px; font-size: clamp(1.5rem, 3vw, 2rem); }
+  .cta-final p { margin: 0 0 28px; opacity: 0.9; max-width: 50ch; margin-inline: auto; }
+  .cta-final .btn-primario { background: #fff; color: var(--cor-principal-escura); }
+  .cta-final .btn-primario:hover { background: var(--cor-secundaria); color: #2A1D0B; }
+
+  footer {
+    padding: 32px 0;
+    text-align: center;
+    color: var(--cor-texto-suave);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 860px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { order: -1; aspect-ratio: 16/9; }
+    .oferta-inner { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Fisio<span>Vitalis</span></div>
+    <nav>
+      <a href="#agendar" class="btn-nav">Agendar avaliação</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <h1>Volte a se mover <strong>sem dor</strong>, com um plano feito para o seu corpo.</h1>
+        <p class="subtitulo">Fisioterapia esportiva e funcional com avaliação completa, tratamento individualizado e acompanhamento até a sua alta — não até o fim da sessão.</p>
+        <a href="#agendar" class="btn-primario">Agendar avaliação gratuita →</a>
+        <div class="hero-selo">
+          <span>⭐ 4,9/5 em mais de 300 avaliações</span>
+          <span>🩺 Equipe CREFITO ativo</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-conteudo">
+          <strong>92%</strong>
+          <small>dos pacientes relatam melhora significativa em até 6 sessões</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section class="beneficios">
+    <div class="container">
+      <div class="titulo-secao">
+        <span class="eyebrow">Por que a Fisio Vitalis</span>
+        <h2>Tratamento pensado para resultado, não para volume de sessões</h2>
+        <p>Cada plano é montado a partir da sua avaliação — nunca é um protocolo genérico.</p>
+      </div>
+      <div class="beneficios-grid">
+        <div class="beneficio-card">
+          <div class="beneficio-icone">🎯</div>
+          <h3>Avaliação individual completa</h3>
+          <p>Antes de qualquer sessão, mapeamos postura, movimento e histórico para montar seu plano.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icone">📈</div>
+          <h3>Acompanhamento de evolução</h3>
+          <p>Você acompanha sua melhora com métricas simples de amplitude, dor e função a cada retorno.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icone">⏱️</div>
+          <h3>Horários flexíveis</h3>
+          <p>Agenda estendida de manhã até a noite, inclusive aos sábados, sem encaixe corrido.</p>
+        </div>
+        <div class="beneficio-card">
+          <div class="beneficio-icone">🤝</div>
+          <h3>Alta é a meta, não a sessão 20</h3>
+          <p>Nosso plano tem critério de alta claro, definido com você desde a primeira consulta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section class="oferta">
+    <div class="container">
+      <div class="titulo-secao">
+        <span class="eyebrow">O plano</span>
+        <h2>Pacote de Recuperação Funcional</h2>
+        <p>Avaliação + tratamento contínuo com o mesmo fisioterapeuta do início ao fim.</p>
+      </div>
+      <div class="oferta-inner">
+        <div>
+          <h3 style="margin-top:0; color: var(--cor-principal-escura);">O que está incluso</h3>
+          <ul class="oferta-lista">
+            <li>Avaliação funcional completa (60 min) na primeira sessão</li>
+            <li>Plano de tratamento individualizado, com critério de alta definido</li>
+            <li>Sessões semanais com o mesmo profissional</li>
+            <li>Reavaliação a cada 4 sessões com ajuste de plano</li>
+            <li>Orientações de exercício para fazer em casa</li>
+            <li>Canal direto de WhatsApp com seu fisioterapeuta</li>
+          </ul>
+        </div>
+        <div class="oferta-preco-card">
+          <p style="margin:0; color: var(--cor-texto-suave); font-weight:600;">Avaliação inicial</p>
+          <p class="preco">Gratuita<br><small>primeira sessão de diagnóstico</small></p>
+          <a href="#agendar" class="btn-primario">Quero agendar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <section class="prova-social">
+    <div class="container">
+      <div class="titulo-secao">
+        <span class="eyebrow">Quem já passou por aqui</span>
+        <h2>Resultado contado por quem viveu</h2>
+      </div>
+      <div class="depoimentos-grid">
+        <div class="depoimento-card">
+          <div class="depoimento-estrelas">★★★★★</div>
+          <p class="depoimento-texto">"Voltei a correr depois de 8 meses parada por dor no joelho. O plano foi feito pra mim, não um protocolo copiado."</p>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">C</div>
+            <div><strong>Camila R.</strong><span>Corredora amadora</span></div>
+          </div>
+        </div>
+        <div class="depoimento-card">
+          <div class="depoimento-estrelas">★★★★★</div>
+          <p class="depoimento-texto">"Trabalho o dia todo sentado e a dor lombar tinha virado rotina. Em 5 sessões já senti diferença real."</p>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">R</div>
+            <div><strong>Rodrigo M.</strong><span>Analista de sistemas</span></div>
+          </div>
+        </div>
+        <div class="depoimento-card">
+          <div class="depoimento-estrelas">★★★★★</div>
+          <p class="depoimento-texto">"O que mais gostei foi ter horário certo pra sair — eles avisam quando a alta está próxima, não empurram sessão."</p>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">J</div>
+            <div><strong>Juliana P.</strong><span>Professora</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="titulo-secao">
+        <span class="eyebrow">Dúvidas comuns</span>
+        <h2>Perguntas frequentes</h2>
+      </div>
+      <div class="faq-lista">
+        <details>
+          <summary>Preciso de encaminhamento médico para agendar?</summary>
+          <p>Não é obrigatório para a avaliação inicial. Se você já tiver um diagnóstico ou exame, é bom trazer, mas não é pré-requisito para começar.</p>
+        </details>
+        <details>
+          <summary>Quantas sessões eu vou precisar?</summary>
+          <p>Depende do quadro. Definimos uma estimativa já na avaliação inicial e revisamos a cada 4 sessões, com critério de alta claro desde o início.</p>
+        </details>
+        <details>
+          <summary>Atendem convênio ou só particular?</summary>
+          <p>Atendimento particular, com recibo para reembolso conforme seu plano de saúde permitir.</p>
+        </details>
+        <details>
+          <summary>E se eu não puder ir a uma sessão?</summary>
+          <p>Basta remarcar com pelo menos 24h de antecedência pelo WhatsApp direto com seu fisioterapeuta, sem burocracia.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="agendar">
+    <div class="container">
+      <div class="cta-final">
+        <h2>Sua avaliação gratuita está a um clique de distância</h2>
+        <p>Sem compromisso, sem letra miúda. Você sai da primeira consulta com um plano claro para o seu caso.</p>
+        <a href="#" class="btn-primario">Agendar avaliação gratuita →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>Fisio Vitalis — conteúdo fictício, gerado como teste técnico de landing page pela Ethos Studio. Não representa uma clínica real.</p>
+  </div>
+</footer>
+
+</body>
+</html>
