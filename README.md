@@ -31,6 +31,16 @@ Este teste usa GitHub Pages (grátis) porque é um **teste interno** da Ethos, s
 | Tempo total (arquivo gerado → site no ar, HTTP 200) | ~2min43s |
 | Evidência visual (screenshot) | **Não capturada nesta rodada** — ferramentas de navegador (Chrome) não estavam disponíveis na sessão do Lex; verificação feita por status HTTP real (200). Recomendo abrir o link para conferência visual. |
 
+## Correção pós-teste: falta de imagens (feedback de Mica, 26/07/2026)
+
+A primeira versão gerada por Claude Code não incluiu nenhuma fotografia real — só um bloco de gradiente decorativo e emojis como ícones. Mica identificou o problema ao revisar. Correção aplicada:
+
+- Adicionadas 5 fotos reais de banco de imagens gratuito e livre de uso comercial (Pexels, sem custo, sem necessidade de atribuição): 1 no hero, 1 na seção de oferta, 3 em uma nova seção de galeria ("como é o atendimento na prática").
+- Fotos baixadas e versionadas dentro do próprio repositório (`images/`), não hotlinkadas em CDN externo — mais robusto para publicação real.
+- Republicado e confirmado no ar via HTTP 200 (página e imagens).
+
+**Aprendizado para próximos testes:** o prompt estruturado do vídeo original (Claude Design) provavelmente gera ou sugere imagens/ilustrações como parte do próprio processo de design visual — ao usar Claude Code (que só escreve código, não gera imagens), esse passo fica ausente por padrão e precisa ser adicionado manualmente como uma etapa própria do processo (buscar/inserir imagens reais), não é algo automático. Isso deve entrar como campo explícito em qualquer prompt estruturado futuro para landing pages.
+
 ## Avaliação do critério de sucesso
 
 Critério (mesmo do teste anterior, adaptado): página gerada em uma passada, sem retrabalho manual, publicada de verdade, sem custo adicional, com a estrutura de seções completa do prompt do vídeo.
