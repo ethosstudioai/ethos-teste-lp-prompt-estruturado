@@ -5,19 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fisio Vitalis — Fisioterapia Esportiva e Funcional</title>
 <meta name="description" content="Volte a se mover sem dor. Avaliação completa, tratamento personalizado e acompanhamento até a alta na Fisio Vitalis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cor-principal: #1B7F79;
-    --cor-principal-escura: #145F5A;
-    --cor-secundaria: #F2A65A;
-    --cor-secundaria-escura: #D98A3D;
-    --cor-fundo: #F7FAF9;
-    --cor-texto: #1F2A2A;
-    --cor-texto-suave: #4B5B5A;
+    --cor-principal: #12615B;
+    --cor-principal-escura: #0B3F3C;
+    --cor-principal-clara: #E3F0EE;
+    --cor-secundaria: #E2703A;
+    --cor-secundaria-escura: #B8541F;
+    --cor-fundo: #FAFAF8;
+    --cor-texto: #1C1B18;
+    --cor-texto-suave: #5A5650;
     --cor-card: #FFFFFF;
-    --cor-borda: #E1E9E7;
-    --sombra: 0 4px 20px rgba(15, 60, 55, 0.08);
+    --cor-borda: #E3E8E5;
+    --sombra: 0 4px 24px rgba(18, 40, 38, 0.10);
     --raio: 14px;
+    --fonte-display: "Space Grotesk", system-ui, -apple-system, sans-serif;
+    --fonte-corpo: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    --fonte-mono: "IBM Plex Mono", ui-monospace, "Courier New", monospace;
   }
 
   * { box-sizing: border-box; }
@@ -29,7 +36,7 @@
 
   body {
     margin: 0;
-    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    font-family: var(--fonte-corpo);
     color: var(--cor-texto);
     background: var(--cor-fundo);
     line-height: 1.6;
@@ -69,11 +76,17 @@
     padding: 0 24px;
   }
 
+  /* ASSINATURA — trilha de movimento (usada nos eyebrows e no hero) */
+  .trilha-icone {
+    color: currentColor;
+    flex-shrink: 0;
+  }
+
   /* HEADER */
   header {
     position: sticky;
     top: 0;
-    background: rgba(247, 250, 249, 0.92);
+    background: rgba(250, 250, 248, 0.92);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--cor-borda);
     z-index: 50;
@@ -85,7 +98,8 @@
     padding: 16px 24px;
   }
   .logo {
-    font-weight: 800;
+    font-family: var(--fonte-display);
+    font-weight: 700;
     font-size: 1.3rem;
     color: var(--cor-principal-escura);
     letter-spacing: -0.02em;
@@ -105,15 +119,31 @@
 
   /* HERO */
   .hero {
+    position: relative;
     padding: 72px 0 64px;
+    overflow: hidden;
+  }
+  .hero-trilha-fundo {
+    position: absolute;
+    top: 10px;
+    left: -40px;
+    width: 620px;
+    max-width: 60%;
+    color: var(--cor-principal);
+    opacity: 0.07;
+    z-index: 0;
+    pointer-events: none;
   }
   .hero-inner {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 48px;
     align-items: center;
   }
   .hero h1 {
+    font-family: var(--fonte-display);
     font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.15;
     margin: 0 0 20px;
@@ -132,7 +162,7 @@
     align-items: center;
     gap: 8px;
     background: var(--cor-secundaria);
-    color: #2A1D0B;
+    color: #2A1206;
     font-weight: 700;
     padding: 16px 32px;
     border-radius: 999px;
@@ -149,13 +179,15 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    font-size: 0.9rem;
+    font-family: var(--fonte-mono);
+    font-size: 0.8rem;
     color: var(--cor-texto-suave);
   }
   .hero-selo span { display: flex; align-items: center; gap: 6px; }
 
   .hero-visual {
     position: relative;
+    z-index: 1;
     border-radius: var(--raio);
     aspect-ratio: 4/3.2;
     overflow: hidden;
@@ -181,11 +213,15 @@
   }
   .hero-selo-flutuante strong {
     display: block;
+    font-family: var(--fonte-display);
     font-size: 1.8rem;
     color: var(--cor-principal-escura);
     line-height: 1.1;
   }
-  .hero-selo-flutuante small { color: var(--cor-texto-suave); }
+  .hero-selo-flutuante small {
+    font-family: var(--fonte-mono);
+    color: var(--cor-texto-suave);
+  }
 
   /* GALERIA */
   .galeria-grid {
@@ -208,9 +244,10 @@
   }
   .galeria-grid figcaption {
     padding: 14px 16px;
-    font-size: 0.9rem;
+    font-family: var(--fonte-mono);
+    font-size: 0.8rem;
     color: var(--cor-texto-suave);
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .oferta-foto {
@@ -230,16 +267,22 @@
     margin: 0 auto 48px;
   }
   .titulo-secao .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--fonte-mono);
     color: var(--cor-secundaria-escura);
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   .titulo-secao h2 {
+    font-family: var(--fonte-display);
+    font-weight: 600;
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     color: var(--cor-principal-escura);
-    margin: 8px 0 12px;
+    margin: 10px 0 12px;
   }
   .titulo-secao p { color: var(--cor-texto-suave); margin: 0; }
 
@@ -258,13 +301,13 @@
   .beneficio-icone {
     width: 48px; height: 48px;
     border-radius: 12px;
-    background: rgba(27, 127, 121, 0.1);
+    background: var(--cor-principal-clara);
     color: var(--cor-principal);
     display: flex; align-items: center; justify-content: center;
     font-size: 1.4rem;
     margin-bottom: 16px;
   }
-  .beneficio-card h3 { margin: 0 0 8px; font-size: 1.1rem; color: var(--cor-texto); }
+  .beneficio-card h3 { font-family: var(--fonte-display); font-weight: 600; margin: 0 0 8px; font-size: 1.1rem; color: var(--cor-texto); }
   .beneficio-card p { margin: 0; color: var(--cor-texto-suave); font-size: 0.95rem; }
 
   /* OFERTA */
@@ -275,11 +318,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    background: linear-gradient(135deg, rgba(27,127,121,0.06), rgba(242,166,90,0.08));
+    background: linear-gradient(135deg, rgba(18,97,91,0.06), rgba(226,112,58,0.07));
     border: 1px solid var(--cor-borda);
     border-radius: var(--raio);
     padding: 40px;
   }
+  .oferta-inner h3 { font-family: var(--fonte-display); font-weight: 600; }
   .oferta-lista { list-style: none; margin: 20px 0 28px; padding: 0; }
   .oferta-lista li {
     padding: 10px 0 10px 30px;
@@ -293,7 +337,7 @@
     top: 10px;
     color: var(--cor-principal);
     font-weight: 800;
-    background: rgba(27,127,121,0.12);
+    background: var(--cor-principal-clara);
     width: 20px; height: 20px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
@@ -307,8 +351,9 @@
     box-shadow: var(--sombra);
     align-self: start;
   }
-  .oferta-preco-card .preco { font-size: 2.4rem; font-weight: 800; color: var(--cor-principal-escura); }
-  .oferta-preco-card .preco small { font-size: 1rem; font-weight: 500; color: var(--cor-texto-suave); }
+  .oferta-preco-card .rotulo { font-family: var(--fonte-mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.75rem; margin: 0; color: var(--cor-texto-suave); font-weight: 600; }
+  .oferta-preco-card .preco { font-family: var(--fonte-display); font-size: 2.2rem; font-weight: 700; color: var(--cor-principal-escura); }
+  .oferta-preco-card .preco small { font-family: var(--fonte-mono); font-size: 0.85rem; font-weight: 500; color: var(--cor-texto-suave); }
   .oferta-preco-card .btn-primario { width: 100%; justify-content: center; margin-top: 20px; }
 
   /* PROVA SOCIAL */
@@ -330,10 +375,11 @@
     width: 42px; height: 42px; border-radius: 50%;
     background: var(--cor-principal);
     color: #fff; display: flex; align-items: center; justify-content: center;
+    font-family: var(--fonte-display);
     font-weight: 700;
   }
   .depoimento-autor strong { display: block; font-size: 0.95rem; }
-  .depoimento-autor span { font-size: 0.85rem; color: var(--cor-texto-suave); }
+  .depoimento-autor span { font-family: var(--fonte-mono); font-size: 0.8rem; color: var(--cor-texto-suave); }
 
   /* FAQ */
   .faq-lista { max-width: 760px; margin: 0 auto; }
@@ -356,6 +402,7 @@
   summary::-webkit-details-marker { display: none; }
   summary::after {
     content: "+";
+    font-family: var(--fonte-display);
     font-size: 1.4rem;
     color: var(--cor-principal);
     font-weight: 400;
@@ -372,10 +419,10 @@
     padding: 56px 32px;
     margin: 0 24px;
   }
-  .cta-final h2 { margin: 0 0 12px; font-size: clamp(1.5rem, 3vw, 2rem); }
+  .cta-final h2 { font-family: var(--fonte-display); font-weight: 600; margin: 0 0 12px; font-size: clamp(1.5rem, 3vw, 2rem); }
   .cta-final p { margin: 0 0 28px; opacity: 0.9; max-width: 50ch; margin-inline: auto; }
   .cta-final .btn-primario { background: #fff; color: var(--cor-principal-escura); }
-  .cta-final .btn-primario:hover { background: var(--cor-secundaria); color: #2A1D0B; }
+  .cta-final .btn-primario:hover { background: var(--cor-secundaria); color: #fff; }
 
   footer {
     padding: 32px 0;
@@ -408,21 +455,28 @@
 
   <!-- HERO -->
   <section class="hero">
+    <svg class="hero-trilha-fundo" viewBox="0 0 600 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0 160C60 160 60 40 120 40C180 40 180 190 240 190C300 190 300 70 360 70C420 70 420 150 480 150C520 150 550 150 600 150" stroke="currentColor" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+      <circle cx="120" cy="40" r="6" fill="currentColor"/>
+      <circle cx="240" cy="190" r="6" fill="currentColor"/>
+      <circle cx="360" cy="70" r="6" fill="currentColor"/>
+      <circle cx="480" cy="150" r="6" fill="currentColor"/>
+    </svg>
     <div class="container hero-inner">
       <div>
         <h1>Volte a se mover <strong>sem dor</strong>, com um plano feito para o seu corpo.</h1>
         <p class="subtitulo">Fisioterapia esportiva e funcional com avaliação completa, tratamento individualizado e acompanhamento até a sua alta — não até o fim da sessão.</p>
         <a href="#agendar" class="btn-primario">Agendar avaliação gratuita →</a>
         <div class="hero-selo">
-          <span>⭐ 4,9/5 em mais de 300 avaliações</span>
-          <span>🩺 Equipe CREFITO ativo</span>
+          <span>⭐ 4,9/5 EM MAIS DE 300 AVALIAÇÕES</span>
+          <span>🩺 EQUIPE CREFITO ATIVO</span>
         </div>
       </div>
       <div class="hero-visual">
         <img src="images/hero-1.jpeg" alt="Fisioterapeuta auxiliando paciente durante exercício de reabilitação com peso">
         <div class="hero-selo-flutuante">
           <strong>92%</strong>
-          <small>dos pacientes relatam melhora significativa em até 6 sessões</small>
+          <small>DOS PACIENTES RELATAM MELHORA SIGNIFICATIVA EM ATÉ 6 SESSÕES</small>
         </div>
       </div>
     </div>
@@ -432,7 +486,15 @@
   <section class="beneficios">
     <div class="container">
       <div class="titulo-secao">
-        <span class="eyebrow">Por que a Fisio Vitalis</span>
+        <span class="eyebrow">
+          <svg class="trilha-icone" width="36" height="14" viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 8C6 8 6 2 11 2C16 2 16 14 21 14C26 14 26 8 31 8C34 8 36 8 39 8" stroke="currentColor" stroke-width="1.6" stroke-dasharray="1 4" stroke-linecap="round"/>
+            <circle cx="11" cy="2" r="2" fill="currentColor"/>
+            <circle cx="21" cy="14" r="2" fill="currentColor"/>
+            <circle cx="31" cy="8" r="2" fill="currentColor"/>
+          </svg>
+          Por que a Fisio Vitalis
+        </span>
         <h2>Tratamento pensado para resultado, não para volume de sessões</h2>
         <p>Cada plano é montado a partir da sua avaliação — nunca é um protocolo genérico.</p>
       </div>
@@ -465,22 +527,30 @@
   <section class="galeria">
     <div class="container">
       <div class="titulo-secao">
-        <span class="eyebrow">Como é por dentro</span>
+        <span class="eyebrow">
+          <svg class="trilha-icone" width="36" height="14" viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 8C6 8 6 2 11 2C16 2 16 14 21 14C26 14 26 8 31 8C34 8 36 8 39 8" stroke="currentColor" stroke-width="1.6" stroke-dasharray="1 4" stroke-linecap="round"/>
+            <circle cx="11" cy="2" r="2" fill="currentColor"/>
+            <circle cx="21" cy="14" r="2" fill="currentColor"/>
+            <circle cx="31" cy="8" r="2" fill="currentColor"/>
+          </svg>
+          Como é por dentro
+        </span>
         <h2>O atendimento na prática, não só no papel</h2>
         <p>Ambiente pensado para reabilitação segura, com acompanhamento próximo em cada movimento.</p>
       </div>
       <div class="galeria-grid">
         <figure>
           <img src="images/exercicio-1.jpeg" alt="Fisioterapeuta orientando paciente durante exercício sobre colchonete">
-          <figcaption>Exercícios orientados, um a um</figcaption>
+          <figcaption>EXERCÍCIOS ORIENTADOS, UM A UM</figcaption>
         </figure>
         <figure>
           <img src="images/equilibrio-1.jpeg" alt="Paciente em treino de equilíbrio sobre prancha de propriocepção">
-          <figcaption>Treino de equilíbrio e propriocepção</figcaption>
+          <figcaption>TREINO DE EQUILÍBRIO E PROPRIOCEPÇÃO</figcaption>
         </figure>
         <figure>
           <img src="images/massagem-1.jpeg" alt="Terapeuta realizando liberação manual em paciente">
-          <figcaption>Liberação manual quando o quadro pede</figcaption>
+          <figcaption>LIBERAÇÃO MANUAL QUANDO O QUADRO PEDE</figcaption>
         </figure>
       </div>
     </div>
@@ -490,7 +560,15 @@
   <section class="oferta">
     <div class="container">
       <div class="titulo-secao">
-        <span class="eyebrow">O plano</span>
+        <span class="eyebrow">
+          <svg class="trilha-icone" width="36" height="14" viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 8C6 8 6 2 11 2C16 2 16 14 21 14C26 14 26 8 31 8C34 8 36 8 39 8" stroke="currentColor" stroke-width="1.6" stroke-dasharray="1 4" stroke-linecap="round"/>
+            <circle cx="11" cy="2" r="2" fill="currentColor"/>
+            <circle cx="21" cy="14" r="2" fill="currentColor"/>
+            <circle cx="31" cy="8" r="2" fill="currentColor"/>
+          </svg>
+          O plano
+        </span>
         <h2>Pacote de Recuperação Funcional</h2>
         <p>Avaliação + tratamento contínuo com o mesmo fisioterapeuta do início ao fim.</p>
       </div>
@@ -508,7 +586,7 @@
           </ul>
         </div>
         <div class="oferta-preco-card">
-          <p style="margin:0; color: var(--cor-texto-suave); font-weight:600;">Avaliação inicial</p>
+          <p class="rotulo">Avaliação inicial</p>
           <p class="preco">Gratuita<br><small>primeira sessão de diagnóstico</small></p>
           <a href="#agendar" class="btn-primario">Quero agendar</a>
         </div>
@@ -520,7 +598,15 @@
   <section class="prova-social">
     <div class="container">
       <div class="titulo-secao">
-        <span class="eyebrow">Quem já passou por aqui</span>
+        <span class="eyebrow">
+          <svg class="trilha-icone" width="36" height="14" viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 8C6 8 6 2 11 2C16 2 16 14 21 14C26 14 26 8 31 8C34 8 36 8 39 8" stroke="currentColor" stroke-width="1.6" stroke-dasharray="1 4" stroke-linecap="round"/>
+            <circle cx="11" cy="2" r="2" fill="currentColor"/>
+            <circle cx="21" cy="14" r="2" fill="currentColor"/>
+            <circle cx="31" cy="8" r="2" fill="currentColor"/>
+          </svg>
+          Quem já passou por aqui
+        </span>
         <h2>Resultado contado por quem viveu</h2>
       </div>
       <div class="depoimentos-grid">
@@ -529,7 +615,7 @@
           <p class="depoimento-texto">"Voltei a correr depois de 8 meses parada por dor no joelho. O plano foi feito pra mim, não um protocolo copiado."</p>
           <div class="depoimento-autor">
             <div class="depoimento-avatar">C</div>
-            <div><strong>Camila R.</strong><span>Corredora amadora</span></div>
+            <div><strong>Camila R.</strong><span>CORREDORA AMADORA</span></div>
           </div>
         </div>
         <div class="depoimento-card">
@@ -537,7 +623,7 @@
           <p class="depoimento-texto">"Trabalho o dia todo sentado e a dor lombar tinha virado rotina. Em 5 sessões já senti diferença real."</p>
           <div class="depoimento-autor">
             <div class="depoimento-avatar">R</div>
-            <div><strong>Rodrigo M.</strong><span>Analista de sistemas</span></div>
+            <div><strong>Rodrigo M.</strong><span>ANALISTA DE SISTEMAS</span></div>
           </div>
         </div>
         <div class="depoimento-card">
@@ -545,7 +631,7 @@
           <p class="depoimento-texto">"O que mais gostei foi ter horário certo pra sair — eles avisam quando a alta está próxima, não empurram sessão."</p>
           <div class="depoimento-autor">
             <div class="depoimento-avatar">J</div>
-            <div><strong>Juliana P.</strong><span>Professora</span></div>
+            <div><strong>Juliana P.</strong><span>PROFESSORA</span></div>
           </div>
         </div>
       </div>
@@ -556,7 +642,15 @@
   <section class="faq">
     <div class="container">
       <div class="titulo-secao">
-        <span class="eyebrow">Dúvidas comuns</span>
+        <span class="eyebrow">
+          <svg class="trilha-icone" width="36" height="14" viewBox="0 0 40 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 8C6 8 6 2 11 2C16 2 16 14 21 14C26 14 26 8 31 8C34 8 36 8 39 8" stroke="currentColor" stroke-width="1.6" stroke-dasharray="1 4" stroke-linecap="round"/>
+            <circle cx="11" cy="2" r="2" fill="currentColor"/>
+            <circle cx="21" cy="14" r="2" fill="currentColor"/>
+            <circle cx="31" cy="8" r="2" fill="currentColor"/>
+          </svg>
+          Dúvidas comuns
+        </span>
         <h2>Perguntas frequentes</h2>
       </div>
       <div class="faq-lista">
