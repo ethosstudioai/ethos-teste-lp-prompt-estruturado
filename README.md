@@ -41,6 +41,15 @@ A primeira versão gerada por Claude Code não incluiu nenhuma fotografia real �
 
 **Aprendizado para próximos testes:** o prompt estruturado do vídeo original (Claude Design) provavelmente gera ou sugere imagens/ilustrações como parte do próprio processo de design visual — ao usar Claude Code (que só escreve código, não gera imagens), esse passo fica ausente por padrão e precisa ser adicionado manualmente como uma etapa própria do processo (buscar/inserir imagens reais), não é algo automático. Isso deve entrar como campo explícito em qualquer prompt estruturado futuro para landing pages.
 
+## Terceira rodada: direção visual com referências reais (26-27/07/2026)
+
+Mica apontou que gerar sem referência estava saindo genérico. Fui atrás de 4 landing pages reais de clínicas de fisioterapia bem avaliadas (via pesquisa, sem ferramenta de navegador nesta sessão — leitura de conteúdo/estrutura, não inspeção visual direta): [Finish Strong PT](https://www.finishstrongpt.com) (calor atlético, fotografia de ação), [Bespoke Treatments](https://bespoketreatments.com) (premium), [Kaizen Physical Therapy](https://kaizenseattle.com) (confiança clínica, azul/teal) e [Physioworks PT](https://www.physioworkspt.com) (verde calmo). Mica escolheu misturar Finish Strong + Kaizen.
+
+Direção aplicada:
+- **Cor:** teal profundo (confiança clínica, de Kaizen) como cor principal + terracota/coral (energia/movimento, de Finish Strong) como acento — fundo quase-branco, não creme, para não cair no clichê "creme + serifa + terracota" comum em design gerado por IA.
+- **Tipografia:** Space Grotesk (títulos) + IBM Plex Sans (corpo) + IBM Plex Mono (rótulos/estatísticas) via Google Fonts (gratuito).
+- **Assinatura própria:** um pequeno traço pontilhado com marcadores (uma "trilha de movimento/articulação") ao lado de cada título de seção e, de forma sutil, atrás da foto do hero — grounded no que fisioterapia realmente é (rastrear movimento e articulação), não decoração aleatória.
+
 ## Avaliação do critério de sucesso
 
 Critério (mesmo do teste anterior, adaptado): página gerada em uma passada, sem retrabalho manual, publicada de verdade, sem custo adicional, com a estrutura de seções completa do prompt do vídeo.
